@@ -18,3 +18,28 @@ void indent(int n){
        std::cout <<"         ";
     }
 }
+
+int countLengthArrayFloatFromFile(char*fileName){
+      float rno;
+      int count=0;
+      std::ifstream fin(fileName);
+      //read data from the file student
+      fin>>rno; 
+      while(fin){
+        count++;fin>>rno; 
+      }
+      fin.close();
+      return count;
+}
+
+float* readArrayFloatFromFile(char*fileName){
+      float rno=2,fee=3;
+      int count=countLengthArrayFloatFromFile(fileName);
+      float*tab=newArrayFloat(count);
+      std::ifstream fin(fileName);
+      for(int i=0;i<count;i++){
+         fin>>tab[i]; 
+      }
+      fin.close();
+    return tab;
+}

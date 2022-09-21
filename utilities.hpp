@@ -1,5 +1,6 @@
 #ifndef TEST_HPP
 #define TEST_HPP
+#include <fstream>
 #include <iostream>
 
 /*
@@ -11,4 +12,6 @@ float *newArrayFloat(int n);
 */
 void displayArrayFloat(float*tab,int taille);
 void indent(int n);
+int countLengthArrayFloatFromFile(char*fileName);
+float* readArrayFloatFromFile(char*fileName);
 #endif

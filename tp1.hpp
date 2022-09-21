@@ -4,7 +4,7 @@
 #include "utilities.hpp"
 
 /* algorithme de karatsuba*/
-float*karatsuba(float*p,float*q,int degreeP,int degreeQ,int e);
+float*karatsuba(float*p,float*q,int degreeP,int degreeQ);
 /* algorithme de strassen*/
 void strassen();
 /**
@@ -44,5 +44,8 @@ float*additionSameDegree(float*p,float*q,int degreeP,int degreeQ);
     mulptiplie par -1 , les coeffiscient d'un polynome
 */
 float*negation(float*p,int degreeP);
-/**/
+/*
+    application de karatsuba
+*/
+void part1();
 #endif
