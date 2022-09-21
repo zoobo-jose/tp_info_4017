@@ -5,6 +5,8 @@ using namespace std;
 int main()
 {
    //application de karatsuba
-    part1();
+    //part1();
+   //application de strassen
+    part2();
     return 0;
 }
