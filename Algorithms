@@ -1,0 +1,102 @@
+ALGORITHMIQUE:
+
+PROBLÈMES: 
+
+Donnons les algorithmes et complexités en temps.
+
+1-Parcours en profondeur d’ un arbre binaire de recherche de taille 1
+
+si t est vide alors
+ Retourner -1;
+sinon
+ Traiter(t.racine)
+fin si
+
+Complexité:
+O(1)
+
+
+2-Parcours en largeur d’ un arbre binaire de taille n
+
+VARIABLE
+T : arbre
+Tg : arbre
+Td : arbre
+x : noeud
+f : file (initialement vide)
+
+DEBUT
+PARCOURS-LARGEUR(T) :
+  enfiler(T.racine, f) //on place la racine dans la file
+  tant que f non vide :
+    x ← defiler(f)
+    affiche x.clé
+    si x.gauche ≠ NIL :
+      Tg ← x.gauche
+      enfiler(Tg.racine, f)
+    fin si
+    si x.droit ≠ NIL :
+      Td ← x.droite
+      enfiler(Td.racine, f)
+    fin si
+  fin tant que
+FIN
+
+3-Calcul de l’ arbre couvrant de poids minimal d’ un graphe pondéré avec l’ algorithme de Kruskal
+
+L’algorithme de Kruskal construit un arbre couvrant minimal en maintenant une partition P ⊆ P(S) des nœuds S. 
+Pour s ∈ S, on note P(s) l’unique partie de P contenant s : P(s) ∈ P et s ∈ P(s).
+
+Algorithme Kruskal(S, A’, w)
+ A = ∅
+ P = { {s} | s ∈ S } trier A’ par ordre croissant de poids w 
+pour chaque {s, t} ∈ A
+ si P(s) != P(t)
+ A = A ∪ {{s, t}}
+ fusionner P(s) et P(t) dans P
+ fin si
+ fin pour
+
+Complexité:
+ l’algorithme de Kruskal est en O(|A| log |A|).
+
+4-Calcul de l’ arbre couvrant de poids minimal d’ un graphe pondéré avec l’ algorithme de Prim
+
+Il part d’un sommet r arbitraire puis fait grossir A en y adjoignant une arête de poids minimal qui le laisse connexe et sans cycle. Il utilise pour cela une file de priorité.
+
+Algorithme Primt(S, A’, w)
+ A=0;
+ choisir r ∈ S
+ P(r) = 0 et ∀s != r, P(s) = ∞
+ tant que P != ∅
+ s = extraire-min P pour chaque t tel que {s, t} ∈ A’
+ si t ∈ P et w({s, t}) < P(t)
+ A = A ∪ {{s, t}}
+ P(t) = w({s, t})
+ fin si
+ fin pour
+ fin tant que
+
+Complexité:
+ Si la file de priorité est implantée `a l’aide de la structure des tas de Fibonacci, les fonctions extraire-min et P(t) = w({s, t}) (qui ne peut que diminuer la priorité d’un nœud) se font respectivement en O(log |S|) et O(1). On obtient un cout total O(|A| + |S| log |S|)
+
+
+5-Calcul de la distance dans un graphe pondéré avec l’ algorithme de Djikstra
+
+Algorithme Djikstra((S, A, w)
+∀t, P(t) = w(s, t)
+ si (s, t) ∈ A
+ P(t) = ∞
+ Sinon δs(0) = 0 et ∀t != s, δs(t) = ∞
+ tant que P != ∅
+ u = extraire-min P
+ pour chaque v tel que (u, v) ∈ A
+ si δs(v) > δs(u) + w(u, v)
+ δs(v) = δs(u) + w(u, v)
+ P(v) = δs(v)
+ fin si
+ fin pour
+ fin tant que
+
+Complexité:
+ Si la file de priorit´e est implant´ee `a l’aide de la structure de donn´ees des tas de Fibonacci , les fonctions extraire-min et P(v) = δs(v) (qui ne peut que diminuer la priorité d’un nœud) se font respectivement en O(log |S|) et O(1). On obtient un coût total O(|A| + |S| log |S|) pour l’algorithme de Dijkstra.
