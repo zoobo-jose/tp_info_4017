@@ -1,5 +1,33 @@
 #include "tp1.hpp"
 
+/*
+    application de karatsuba
+*/
+void part1()
+{
+    float *p = readArrayFloatFromFile("data/polynome1.txt");
+    float *q = readArrayFloatFromFile("data/polynome2.txt");
+    int degreeP = countLengthArrayFloatFromFile("data/polynome1.txt") - 1;
+    int degreeQ = countLengthArrayFloatFromFile("data/polynome2.txt") - 1;
+    float *resultat = karatsuba(p, q, degreeP, degreeQ);
+    displayArrayFloat(resultat, degreeP + degreeQ + 1);
+}
+/*
+    application de strassen
+*/
+void part2()
+{
+    float *A = readArrayFloatFromFile("data/matrice1.txt");
+    float *B = readArrayFloatFromFile("data/matrice2.txt");
+    int  n= sqrt(countLengthArrayFloatFromFile("data/matrice1.txt"));
+    
+    displayMatrice(A,n);
+    std::cout<<" \n";
+    displayMatrice(B,n);
+    std::cout<<"\n";
+    displayMatrice(strassen(A,B,n),n);
+}
+
 /* algorithme de karatsuba*/
 float *karatsuba(float *p, float *q, int degreeP, int degreeQ)
 {
@@ -47,6 +75,7 @@ float *karatsuba(float *p, float *q, int degreeP, int degreeQ)
         return addition(resultat, r1, 2 * degree, degree - degreeFp, 2 * degreeLp, 0);
     }
 }
+
 /* algorithme de strassen*/
 float*strassen(float*A,float*B,int dim){
  //cas de base
@@ -221,18 +250,7 @@ float *negation(float *p, int degreeP)
     }
     return newP;
 }
-/*
-    application de karatsuba
-*/
-void part1()
-{
-    float *p = readArrayFloatFromFile("data/polynome1.txt");
-    float *q = readArrayFloatFromFile("data/polynome2.txt");
-    int degreeP = countLengthArrayFloatFromFile("data/polynome1.txt") - 1;
-    int degreeQ = countLengthArrayFloatFromFile("data/polynome2.txt") - 1;
-    float *resultat = karatsuba(p, q, degreeP, degreeQ);
-    displayArrayFloat(resultat, degreeP + degreeQ + 1);
-}
+
 /* ********************************* utilitaire pour strassen ****************************************/
 /* cree une matrice carre de dimension nxn*/
 float *newSquaredMatrice(int n)
@@ -390,15 +408,3 @@ float* subMatrice(float*M,int dimM,int dim){
     return A;
 }
 
-void part2()
-{
-    float *A = readArrayFloatFromFile("data/matrice1.txt");
-    float *B = readArrayFloatFromFile("data/matrice2.txt");
-    int  n= sqrt(countLengthArrayFloatFromFile("data/matrice1.txt"));
-    
-    displayMatrice(A,n);
-    std::cout<<" \n";
-    displayMatrice(B,n);
-    std::cout<<"\n";
-    displayMatrice(strassen(A,B,n),n);
-}
