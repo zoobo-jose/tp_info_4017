@@ -10,5 +10,5 @@ float *newArrayFloat(int n);
     affiche un tableau de float
 */
 void displayArrayFloat(float*tab,int taille);
-
+void indent(int n);
 #endif

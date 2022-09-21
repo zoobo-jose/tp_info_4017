@@ -9,6 +9,12 @@ float * newArrayFloat(int n){
 
 void displayArrayFloat(float*tab,int taille){
      for(int i=0;i<taille;i++){
-       std::cout << tab[i]<<"\n";
+       std::cout << tab[i]<<" : ";
+    }
+    std::cout<<"\n";
+}
+void indent(int n){
+    for(int i=0;i<n;i++){
+       std::cout <<"         ";
     }
 }
