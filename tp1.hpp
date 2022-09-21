@@ -1,6 +1,7 @@
 #ifndef TP1_HPP
 #define TP1_HPP
 #include <iostream>
+#include <cmath>
 #include "utilities.hpp"
 
 /* algorithme de karatsuba*/

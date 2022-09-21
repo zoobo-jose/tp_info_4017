@@ -392,16 +392,13 @@ float* subMatrice(float*M,int dimM,int dim){
 
 void part2()
 {
-    int n = 4;
-    float *M = newSquaredMatrice(n);
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            setElementMatrice(M, n, i, j, i%2+j%2);
-        }
-    }
-    displayMatrice(M,n);
+    float *A = readArrayFloatFromFile("data/matrice1.txt");
+    float *B = readArrayFloatFromFile("data/matrice2.txt");
+    int  n= sqrt(countLengthArrayFloatFromFile("data/matrice1.txt"));
+    
+    displayMatrice(A,n);
+    std::cout<<" \n";
+    displayMatrice(B,n);
     std::cout<<"\n";
-    displayMatrice(strassen(M,M,n),n);
+    displayMatrice(strassen(A,B,n),n);
 }
