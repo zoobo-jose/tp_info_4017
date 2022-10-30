@@ -8,10 +8,20 @@
 */
 float *newArrayFloat(int n);
 /*
+    creer un nouveau tableau de n entier
+*/
+int *newArrayInt(int n);
+/*
     affiche un tableau de float
 */
 void displayArrayFloat(float*tab,int taille);
+/*
+    affiche un tableau d'entier
+*/
+void displayArrayInt(int*tab,int taille);
 void indent(int n);
 int countLengthArrayFloatFromFile(char*fileName);
+int countLengthArrayIntFromFile(char*fileName);
 float* readArrayFloatFromFile(char*fileName);
+int* readArrayIntFromFile(char*fileName);
 #endif
