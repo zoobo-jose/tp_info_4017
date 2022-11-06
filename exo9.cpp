@@ -76,14 +76,8 @@ public:
         this->f=newArrayBool(this->n*this->n);
         // par taille
         for(int j =0;j<this->n;j++){
-            for(int i =0;i<this->n-1-j;i++){
+            for(int i =0;i<=this->n-1-j;i++){
                 bool val=this->dict.exist(this->getSubString(i,i+j));
-                std::cout << " substring : "<<i<<" ; "<<j+i<<" ="<<this->getSubString(i,i+j)<<" : ";
-                if(val==true){
-                    std::cout <<"vrai"<<"\n";
-                }else{
-                    std::cout <<"faux"<<"\n";
-                }
                 this->setF(i,i+j,val);
                 int k=i;
                 while(!this->getF(i,i+j)&&k<i+j){
@@ -117,13 +111,15 @@ void exo9()
     dico.load("data/exo9/dictionnaire.txt");
     CorrectPhrase correct= CorrectPhrase();
     correct.dict=dico;
-    correct.t="aa";
+    correct.t=newString(10);
+    std::ifstream fin("data/exo9/mot.txt");
+    fin >> correct.t;
     correct.iscorrectPhrase();
     if( correct.iscorrectPhrase()){
-        std::cout << " c'est une phrase correct"<< "\n";
+        std::cout<<correct.t<< " est une phrase correct"<< "\n";
     }else{
-        std::cout << " incorrect "<< "\n";
+        std::cout<<correct.t<< "n'est pas une phrase correct "<< "\n";
     }
-    std::cout << correct.getSubString(0,4)<< "\n";
+    // std::cout << correct.getSubString(0,4)<< "\n";
     // Mot a[10];
 }
