@@ -114,7 +114,7 @@ void exo9()
     correct.t=newString(10);
     std::ifstream fin("data/exo9/mot.txt");
     fin >> correct.t;
-    correct.iscorrectPhrase();
+    fin.close();
     if( correct.iscorrectPhrase()){
         std::cout<<correct.t<< " est une phrase correct"<< "\n";
     }else{
