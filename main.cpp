@@ -2,6 +2,7 @@ using namespace std;
 #include <iostream>
 #include "tp1.hpp"
 #include "pgcb.hpp"
+#include "exo8.hpp"
 
 int main()
 {
@@ -10,6 +11,8 @@ int main()
    //application de strassen
     // part2();
   // application du pgcb
-    test();
+    //test();
+  //application de l'exo 8
+    exo8();
     return 0;
 }
