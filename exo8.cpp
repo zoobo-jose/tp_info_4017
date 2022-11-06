@@ -52,7 +52,9 @@ void exo8(){
     int n = countLengthArrayIntFromFile("data/exo8.txt");
     MaxSum a= MaxSum(tab,n);
     a.searchMaxSum();
-    std::cout << " somme =" <<a.s[n-1]<<"\n";
-    std::cout << " debut =" <<a.debut<<"\n";
-    std::cout << " fin =" <<a.fin<<"\n";
+    std::cout << "suite d'entiers " <<"\n ";
+    displayArrayInt(tab,n);
+    std::cout << " somme =" <<a.s[n-1]<<" ;\n";
+    std::cout << " debut =" <<a.debut<<" ;\n";
+    std::cout << " fin =" <<a.fin<<" ;\n";
 }

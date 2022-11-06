@@ -12,7 +12,12 @@ float * newArrayFloat(int n){
 int *newArrayInt(int n){
    return (int*) malloc(n*sizeof(int));
 }
-
+/*
+    creer un nouveau tableau de n booleen
+*/
+bool *newArrayBool(int n){
+  return (bool*) malloc(n*sizeof(bool));
+}
 void displayArrayFloat(float*tab,int taille){
      for(int i=0;i<taille;i++){
        std::cout << tab[i]<<" : ";
@@ -81,4 +86,10 @@ int * readArrayIntFromFile(char*fileName){
       }
       fin.close();
     return tab;
+}
+/*
+    creer un nouveau mot vide
+*/
+char *newString(int n){
+  return (char*) malloc(n*sizeof(int));
 }
