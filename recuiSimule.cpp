@@ -166,9 +166,7 @@ std::list<Point> getPointsFromFile(char*fileName){
 
 void recuiSimule()
 {
-    std::cout << "\n";
-    std::list<Point> s={Point(9,0),Point(11,1),Point(4.4,2),Point(10,3),Point(1,4)};
-    s=getPointsFromFile("data/recuiSimuleTSL/villes.txt");
+    std::list<Point> s=getPointsFromFile("data/recuiSimuleTSL/villes.txt");
     RecuitSimuleTSL A = RecuitSimuleTSL(s,1000);
     A.search();
 }   
