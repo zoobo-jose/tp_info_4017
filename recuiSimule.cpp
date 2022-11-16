@@ -113,19 +113,62 @@ public:
     }
     /* application du recuit simuler*/
     std::list<Point>  search(){
-
+        //solution initial
+         std::list<Point> s=this->s;
+         float e=this->energie(s);
+         float t=this->t;
+        // meilleur solution global
+         std::list<Point> sg=this->s;
+         float eg=e;
+         int k=0;
+         while(k<this->kmax){
+             std::list<Point> sn=this->voisin(s);
+             float en=this->energie(sn);
+             float r=this->random();
+             if(en<e || r<this->proba(en,e,t)){
+                s=sn;
+                e=en;
+                if(e<eg){
+                    eg=e;
+                    sg=s;
+                    this->displayPath(s);
+                }
+             }
+             t=t*this->alpha;
+             k++;
+         }
+         this->displayPath(sg);
+        return sg;
+    }
+    /* affiche un chemin*/
+    void displayPath(std::list<Point> s){
+        for (Point m : s)
+        {
+           std::cout <<m.x<<" "<<m.y<<" - ";
+        }
+        std::cout << "\n"<<" energie="<<this->energie(s)<< "\n";
     }
 
 };
+
+std::list<Point> getPointsFromFile(char*fileName){
+    float *x = readArrayFloatFromFile(fileName);
+    int n= countLengthArrayFloatFromFile(fileName);
+    std::cout <<n<< "\n";
+    std::list<Point> s;
+    for(int i=0;i<n;i+=2){
+        if(i+1<n){
+            s.push_back(Point(x[i],x[i+1]));
+        }
+    }
+    return s;
+}
+
 void recuiSimule()
 {
-   
     std::cout << "\n";
-    std::list<Point> s={Point(0,0),Point(0,1),Point(0,2),Point(0,3),Point(1,4)};
-    RecuitSimuleTSL A = RecuitSimuleTSL(s,20);
-    Point a=Point(0,0);
-    Point b=Point(1,1);
-    std::cout <<A.proba(10.5,1.11,8)<< "\n";
-    std::cout << A.energie(s)<<"\n";
-
+    std::list<Point> s={Point(9,0),Point(11,1),Point(4.4,2),Point(10,3),Point(1,4)};
+    s=getPointsFromFile("data/recuiSimuleTSL/villes.txt");
+    RecuitSimuleTSL A = RecuitSimuleTSL(s,1000);
+    A.search();
 }   
