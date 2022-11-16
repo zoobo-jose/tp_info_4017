@@ -4,6 +4,7 @@ using namespace std;
 #include "pgcb.hpp"
 #include "exo8.hpp"
 #include "exo9.hpp"
+#include "recuiSimule.hpp"
 
 int main()
 {
@@ -18,5 +19,6 @@ int main()
   //application de l'exo 9
     //exo9();
   //recuit simule pour le probleme du voyageur de commerce
+    recuiSimule();
     return 0;
 }
