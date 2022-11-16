@@ -16,6 +16,7 @@ int main()
   //application de l'exo 8
     //exo8();
   //application de l'exo 9
-    exo9();
+    //exo9();
+  //recuit simule pour le probleme du voyageur de commerce
     return 0;
 }
